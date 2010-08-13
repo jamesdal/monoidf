@@ -1,5 +1,6 @@
 #Isotonic regression technique for Ruby (deletion free algorithm)
 #reverse all arrays for antitonic regression(monotonic decreasing)
+#for updates, go to http://github.com/jamesdal/monoidf
 require 'rational'
 class Monoi
   attr_accessor :scores, :sweights, :qweights, :qvalues
@@ -27,7 +28,7 @@ class Monoi
             j += 1
           else
             done = false
-            x = Rational((qvalues_tmp[j].to_f * qweights_tmp[j].to_f + @qvalues[i + 1].to_f * @qweights[i + 1].to_f)/(qweights_tmp[j].to_f + @qweights[i + 1].to_f)) #nix the to_f
+            x = Rational((qvalues_tmp[j].to_f * qweights_tmp[j].to_f + @qvalues[i + 1].to_f * @qweights[i + 1].to_f)/(qweights_tmp[j].to_f + @qweights[i + 1].to_f))
             qvalues_tmp[j] = x.to_f
             qweights_tmp[j] = Rational(qweights_tmp[j].to_f + @qweights[i + 1].to_f)
             i += 1
